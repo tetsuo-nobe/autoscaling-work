@@ -47,20 +47,12 @@
    
 ```
 #!/bin/bash
-yum update -y
-yum -y install httpd
+dnf update -y
+dnf -y install httpd
 cat <<EOF >> /var/www/html/index.html
-<!DOCTYPE html>
-<html>
-<head>
-<title>EC2</title>
-</head>
-<body>
-<p><font size="7" >Welcome to AWS</font></p>
-</body>
-</html>
+<H1>Welcome to AWS</H1>
 EOF
-chown -R apache:apache /var/www/html
+chown -R apache: apache /var/www/html
 service httpd start
 chkconfig httpd on
 ```
@@ -110,6 +102,7 @@ chkconfig httpd on
 ## オートスケーリングの確認
 1. ページ左側で **インスタンス** の **インスタンス** を選択します。
 1. **asg-instance** という名前のインスタンスが 2つ実行中のステータスになっていることを確認します。
+1. **asg-instance** という名前のインスタンスのステータスチェックが **3/3 のチェックに合格しました** になるまで待ちます。
 1. ブラウザの新しいタブでメモしておいた **ALBDNSName** の URL にアクセスします。
 1. 
 
