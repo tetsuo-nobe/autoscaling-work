@@ -48,18 +48,18 @@
 1. **IAM インスタンスプロフィール**　で **myInstanceProfile-<自分の2桁の番号>** を選択します。
 1. ページを下にスクロールして **ユーザーデータ** に下記を入力します。
    
-```
-#!/bin/bash
-dnf update -y
-dnf -y install stress-ng
-dnf -y install httpd
-cat <<EOF >> /var/www/html/index.html
-<H1>Welcome to AWS</H1>
-EOF
-chown -R apache: apache /var/www/html
-service httpd start
-chkconfig httpd on
-```
+    ```
+    #!/bin/bash
+    dnf update -y
+    dnf -y install stress-ng
+    dnf -y install httpd
+    cat <<EOF >> /var/www/html/index.html
+    <H1>Welcome to AWS</H1>
+    EOF
+    chown -R apache: apache /var/www/html
+    service httpd start
+    chkconfig httpd on
+    ```
 
 1. **起動テンプレートを作成**　を選択します。
 1. **起動テンプレートを表示**　を選択します。
@@ -114,12 +114,12 @@ chkconfig httpd on
 1. **接続**　を選択します。
 1. 下記のコマンドで CPU に 10 分間負荷をかけます。
    
-```
-cd
-
-stress-ng --cpu 0 --timeout 10m`
-
-```
+    ```
+    cd
+    
+    stress-ng --cpu 0 --timeout 10m`
+    
+    ```
 
 1. 10分後、EC2 のコンソールに戻ります。
 1. ページ左側で **ダッシュボード** を選択して 右側で **インスタンス (実行中)** を選択します。
