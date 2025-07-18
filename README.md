@@ -51,6 +51,7 @@
 ```
 #!/bin/bash
 dnf update -y
+dnf -y install stress-ng
 dnf -y install httpd
 cat <<EOF >> /var/www/html/index.html
 <H1>Welcome to AWS</H1>
